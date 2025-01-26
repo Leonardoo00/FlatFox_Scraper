@@ -1,0 +1,19 @@
+{
+    "coordinates": {
+      "east": 8.625334,
+      "north": 47.48819,
+      "south": 47.266559,
+      "west": 8.447982
+    },
+    "webhook_url": "https://discord.com/api/webhooks/1310753108413911113/aqblD04EX5zX04LlnqR391dh5rp3ceKtu5omaq6BSS7DfIeBTEhGn5QeOTZcccxUzmny",
+    "max_count": 400,
+    "moving_date_from": "2025-02-01",
+    "moving_date_to": "2025-06-30",
+    "offer_type": "RENT",
+    "ad_type": ["SHARED_FLAT", "APARTMENT"],
+    "ordering": "date",
+    "price_range": {
+      "max_price": 1260,
+      "min_price": 500
+    }
+  }
