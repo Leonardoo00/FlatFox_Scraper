@@ -79,7 +79,7 @@ This Python script monitors the [Flatfox](https://flatfox.ch) real estate platfo
 
 When a new listing is found, you'll receive a notification like this in your Discord channel:
 
-![Discord Notification Example](https://imgur.com/qzDZLmk)
+![Discord Notification Example](https://i.imgur.com/qzDZLmk.png)
 
 ---
 
