@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flatfox Real Estate Monitor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background: #0073e6;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        section {
+            margin: 20px 0;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        a {
+            color: #0073e6;
+        }
+        .image {
+            text-align: center;
+            margin: 20px 0;
+        }
+        footer {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Flatfox Real Estate Monitor</h1>
+    </header>
+
+    <section>
+        <p>This Python script monitors the <a href="https://flatfox.ch" target="_blank">Flatfox</a> real estate platform for new rental listings based on customizable search criteria. When a new listing is found, it sends a detailed notification to a Discord channel using a webhook. Perfect for staying updated on available apartments or shared flats in your desired area.</p>
+    </section>
+
+    <section>
+        <h2>Features</h2>
+        <ul>
+            <li><strong>Customizable Search Parameters:</strong> Define your search area, price range, moving dates, and more in a <code>config.json</code> file.</li>
+            <li><strong>Real-Time Discord Notifications:</strong> Receive instant updates in your Discord channel with detailed information about new listings.</li>
+            <li><strong>Persistent Storage:</strong> Tracks processed listings to avoid duplicate notifications.</li>
+            <li><strong>Detailed Logging:</strong> Logs all actions for easy monitoring and debugging.</li>
+            <li><strong>Automatic Updates:</strong> Runs in a loop, checking for new listings at regular intervals.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Prerequisites</h2>
+        <ul>
+            <li>Python 3.x</li>
+            <li><code>requests</code> library (install via <code>pip install requests</code>)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Installation</h2>
+        <ol>
+            <li>Clone the repository:
+                <pre><code>git clone https://github.com/yourusername/flatfox-monitor.git
+cd flatfox-monitor</code></pre>
+            </li>
+            <li>Install the required Python package:
+                <pre><code>pip install requests</code></pre>
+            </li>
+            <li>Create a <code>config.json</code> file in the root directory with the following structure:
+                <pre><code>{
+    "coordinates": {
+        "north": 47.1234,
+        "south": 47.0000,
+        "east": 8.5678,
+        "west": 8.4321
+    },
+    "price_range": {
+        "max_price": 2000,
+        "min_price": 1000
+    },
+    "moving_date_from": "2024-01-01",
+    "moving_date_to": "2024-12-31",
+    "offer_type": "rent",
+    "ordering": "-published",
+    "max_count": 50,
+    "ad_type": ["SHARED_FLAT", "APARTMENT"],
+    "webhook_url": "https://discord.com/api/webhooks/your-webhook-url"
+}</code></pre>
+                Replace the values with your desired search parameters and Discord webhook URL.
+            </li>
+            <li>Run the script:
+                <pre><code>python main.py</code></pre>
+            </li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>How It Works</h2>
+        <ol>
+            <li>The script fetches listings from the Flatfox API based on the parameters defined in <code>config.json</code>.</li>
+            <li>It checks if each listing has already been processed by referencing a <code>processed_ads.json</code> file.</li>
+            <li>If a new listing is found, it extracts details such as price, address, rooms, and key features.</li>
+            <li>A Discord notification is sent with an embed containing the listing details and an image.</li>
+            <li>The script runs in a loop, checking for new listings every 15 minutes (default).</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>Example Discord Notification</h2>
+        <div class="image">
+            <img src="https://i.imgur.com/qzDZLmk.png" alt="Discord Notification Example" style="max-width:100%;">
+        </div>
+    </section>
+
+    <section>
+        <h2>Customization</h2>
+        <ul>
+            <li><strong>Search Area:</strong> Adjust the <code>north</code>, <code>south</code>, <code>east</code>, and <code>west</code> coordinates in <code>config.json</code> to define your desired area.</li>
+            <li><strong>Price Range:</strong> Modify <code>max_price</code> and <code>min_price</code> to filter listings within your budget.</li>
+            <li><strong>Moving Dates:</strong> Set <code>moving_date_from</code> and <code>moving_date_to</code> to find listings available during your preferred timeframe.</li>
+            <li><strong>Ad Types:</strong> Specify the types of listings you're interested in (e.g., <code>SHARED_FLAT</code>, <code>APARTMENT</code>).</li>
+            <li><strong>Check Interval:</strong> Change the <code>sleep_time</code> variable in <code>main.py</code> to adjust how often the script checks for new listings.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Logging</h2>
+        <p>The script logs all actions to <code>flatfox_monitor.log</code>, with a rotating file handler to prevent large log files. Logs include timestamps, log levels, and messages for easy debugging.</p>
+    </section>
+
+    <section>
+        <h2>Contributing</h2>
+        <p>Contributions are welcome! If you have suggestions or improvements, feel free to open an issue or submit a pull request.</p>
+    </section>
+
+    <section>
+        <h2>License</h2>
+        <p>This project is licensed under the MIT License. See the <code>LICENSE</code> file for details.</p>
+    </section>
+
+    <section>
+        <h2>Disclaimer</h2>
+        <p>This script is for personal use only. Please respect Flatfox's terms of service and avoid overloading their servers with excessive requests.</p>
+    </section>
+
+    <footer>
+        <p>Happy house hunting! 🏠</p>
+    </footer>
+</body>
+</html>
