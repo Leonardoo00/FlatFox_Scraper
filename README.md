@@ -5,6 +5,7 @@ This Python script monitors the [Flatfox](https://flatfox.ch) real estate platfo
 [Repository](https://github.com/Leonardoo00/FlatFox_Scraper)
 [GitHub](https://github.com/Leonardoo00)
 [Linkedin](https://www.linkedin.com/in/leonardo-mario-di-gennaro-57827522a)
+
 ---
 
 ## Features
