@@ -3,7 +3,9 @@
 This Python script monitors the [Flatfox](https://flatfox.ch) real estate platform for new rental listings based on customizable search criteria. When a new listing is found, it sends a detailed notification to a Discord channel using a webhook. Perfect for staying updated on available apartments or shared flats in your desired area.
 
 [Repository](https://github.com/Leonardoo00/FlatFox_Scraper)
+
 [GitHub](https://github.com/Leonardoo00)
+
 [Linkedin](https://www.linkedin.com/in/leonardo-mario-di-gennaro-57827522a)
 
 ---
